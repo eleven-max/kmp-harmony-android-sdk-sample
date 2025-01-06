@@ -1,12 +1,13 @@
 package com.evan.kmp_core
 
-import platform.UIKit.UIDevice
-
-class IOSPlatform: Platform {
-    override val name: String = UIDevice.currentDevice.systemName() + " " + UIDevice.currentDevice.systemVersion
+class JSPlatform: Platform {
+    override val name: String
+        get() = "JS"
 }
 
-actual fun getPlatform(): Platform = IOSPlatform()
+actual fun getPlatform(): Platform {
+    return JSPlatform()
+}
 
 actual fun platformMakeDir(path: String): Boolean {
     TODO("Not yet implemented")
