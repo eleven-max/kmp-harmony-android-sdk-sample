@@ -1,0 +1,1 @@
+npx karakum --config karakum.config.json

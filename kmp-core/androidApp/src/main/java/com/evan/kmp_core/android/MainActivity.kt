@@ -16,11 +16,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         val rootPath = applicationContext.getExternalFilesDir("kmp_core")?.absolutePath ?: ""
+        val fileManager = FileManager()
+        fileManager.prepare(rootPath)
+        fileManager.downloadFile(rootPath)
 
-        FileManager().apply {
-            prepare(rootPath)
-            downloadFile()
-        }
 
         setContent {
             MyApplicationTheme {

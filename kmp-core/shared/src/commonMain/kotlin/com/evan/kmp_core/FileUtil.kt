@@ -14,13 +14,15 @@ object FileUtil {
         return platformWriteFile(file, content)
     }
 
-    fun compressToZip(sourceFile: String, outputZipPath: String): Boolean {
+    suspend fun compressToZip(sourceFile: String, outputZipPath: String): Boolean {
         return platformCompressToZip(sourceFile, outputZipPath)
     }
 
-    // commonMain
-    expect fun unzipFile(zipFilePath: String, targetDir: String): Boolean
+     suspend fun unZipFile(zipFilePath: String, targetDir: String): Boolean {
+        return platformUnZipFile(zipFilePath, targetDir)
+    }
 
-    // commonMain
-    expect fun calculateFileMd5(filePath: String): String
+    fun calculateFileMd5(filePath: String): String {
+        return platformGetFileMd5(filePath)
+    }
 }

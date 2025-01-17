@@ -39,7 +39,7 @@ actual fun platformWriteFile(file: String, content: String): Boolean {
     }
 }
 
-actual fun platformCompressToZip(
+actual suspend fun platformCompressToZip(
     sourceFile: String,
     outputZipPath: String
 ): Boolean {
@@ -70,7 +70,7 @@ actual fun platformCompressToZip(
         false
     }
 }
-actual fun platformUnZipFile(zipFilePath: String, targetDir: String): Boolean {
+actual suspend fun platformUnZipFile(zipFilePath: String, targetDir: String): Boolean {
     return try {
         val zipFile = File(zipFilePath)
         val targetDirectory = File(targetDir)
